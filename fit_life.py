@@ -13,8 +13,7 @@ def user_weights():
     """
     while True:
         try:
-            user_weight_number = float(input(TEXT_FOR_WEIGHT))
-            return user_weight_number
+            return float(input(TEXT_FOR_WEIGHT))
         except ValueError:
             print('Введите число цифрами, без запятых, используйте точку')
 
@@ -25,8 +24,7 @@ def user_ages():
     """
     while True:
         try:
-            user_age_number = int(input('Введите ваш полный возраст цифрами '))
-            return user_age_number
+            return int(input('Введите ваш полный возраст цифрами '))
         except ValueError:
             print('Введите число цифрами, без запятых')
 
@@ -37,8 +35,7 @@ def user_heights():
     """
     while True:
         try:
-            user_heiht_number = float(input(TEXT_FOR_HEIGHT))
-            return user_heiht_number
+            return float(input(TEXT_FOR_HEIGHT))
         except ValueError:
             print('Введите число цифрами, без запятых, используйте точку')
 
