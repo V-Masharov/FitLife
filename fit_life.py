@@ -3,11 +3,13 @@
 # и потом узнал что можно делать бесконечные запросы try/except через
 # # while True. С while True мне тоже подсказала ИИ.
 TEXT_FOR_WEIGHT = 'Введите ваш вес, используя знак "."для указания десятых '
-TEXT_FOR_HEIGHT = 'Введите ваш рост в метрах, '
-'используя знак "." для указания десятых '
+TEXT_FOR_HEIGHT = ('Введите ваш рост в метрах, '
+                   'используя знак "." для указания десятых ')
+DAYLY_WATER_ML = 30
+ML_TO_LITER = 1000  # Количество миллилитров в литрах
 
 
-def user_weights():
+def ask_user_weight():
     """Спрашивает вес, если появляется ошибка - уточняет что может быть не так
     и снова спрашивает
     """
@@ -18,7 +20,7 @@ def user_weights():
             print('Введите число цифрами, без запятых, используйте точку')
 
 
-def user_ages():
+def ask_user_age():
     """Спрашивает возраст, если появляется ошибка - уточняет что может
     быть не так и снова спрашивает
     """
@@ -29,7 +31,7 @@ def user_ages():
             print('Введите число цифрами, без запятых')
 
 
-def user_heights():
+def ask_user_height():
     """Спрашивает рост, если появляется ошибка - уточняет что может
     быть не так и снова спрашивает
     """
@@ -41,13 +43,12 @@ def user_heights():
 
 
 user_name = input('Добро пожаловать! Пожалуйста, напишите ваше имя ').title()
-user_age = user_ages()
-user_weight = user_weights()
-user_height = user_heights()
+user_age = ask_user_age()
+user_weight = ask_user_weight()
+user_height = ask_user_height()
 bmi = round(user_weight / (user_height ** 2), 1)  # индекс массы тела,
 # округлённый до десятых
-water_ml = user_weight * 30  # норма воды в миллилитрах
-water_l = water_ml / 1000  # переводим миллилитры в литры
+water_l = user_weight * DAYLY_WATER_ML / ML_TO_LITER
 print(f'{user_name} ({user_age} лет)! Вот ваши рекомендации:')
 print(f'Дневная норма потребления воды: {water_l} л.')
 print(f'Ваш индекс массы тела составляет: {bmi}')
